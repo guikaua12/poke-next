@@ -1,0 +1,12 @@
+footer.footer {
+    background-color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    color: white;
+}
+
+span.name {
+    font-weight: 500;
+}
