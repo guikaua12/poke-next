@@ -1,0 +1,29 @@
+header.header {
+    background-color: #333333;
+}
+
+nav.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+aside.logo {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+ul.linkWrapper {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    gap: 5px;
+}
+
+
+a.styledLink {
+    text-decoration: none;
+    color: white;
+}
