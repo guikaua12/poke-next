@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from '@/layout/Container';
 import Image from 'next/image';
 import pokeball from '../../public/images/pokeball.png';
 import { Pokemon } from '@/constants/types/pokemon';
 import style from '@/styles/Home.module.css';
 import Card from '@/components/Card';
+import Pagination from '@/constants/pagination/Pagination';
 
 type Props = {
     pokemons: Array<Pokemon>;
 };
 
 export default function Home({ pokemons }: Props) {
-    console.log(pokemons);
+    const [currentPage, setCurrentPage] = useState<number>(1);
+
+    const pagination = new Pagination(
+        pokemons.map((pokemon: Pokemon) => <Card key={pokemon.id} pokemon={pokemon} />),
+        15
+    );
+
+    function handlePageChange(page: number): void {
+        if (page === currentPage) return;
+        setCurrentPage(page);
+    }
 
     return (
         <Container>
@@ -23,11 +34,8 @@ export default function Home({ pokemons }: Props) {
                 <Image src={pokeball} width={45} height={45} alt="Pokeball" />
             </div>
 
-            <div className={style.cardsWrapper}>
-                {pokemons.map((pokemon: Pokemon) => (
-                    <Card key={pokemon.id} pokemon={pokemon} />
-                ))}
-            </div>
+            <div className={style.cardsWrapper}>{pagination.getPage(currentPage)}</div>
+            {pagination.getNavigation(currentPage, handlePageChange)}
         </Container>
     );
 }
@@ -38,7 +46,7 @@ export async function getStaticProps() {
 
     const data = await response.json();
 
-    // put index in each
+    // put index && image in each
     data.results.forEach((pokemon: Pokemon, index: number) => {
         pokemon.id = index + 1;
         pokemon.image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;

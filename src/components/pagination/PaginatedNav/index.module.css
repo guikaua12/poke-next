@@ -1,0 +1,24 @@
+nav.nav {
+    margin-top: 30px;
+}
+
+nav.nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 10PX;
+    list-style: none;
+}
+
+.navButton {
+    background-color: red;
+    padding: 15px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.navButton.active {
+    background-color: black;
+    color: red;
+}
