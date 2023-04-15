@@ -15,6 +15,11 @@ aside.logo {
     gap: 10px;
 }
 
+aside.logo span {
+    font-weight: 700;
+    color: white;
+}
+
 ul.linkWrapper {
     display: flex;
     list-style: none;
