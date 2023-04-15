@@ -1,0 +1,22 @@
+div.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333;
+    outline: 3px solid red;
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    width: 250px;
+}
+
+div.card * {
+    margin-top: 15px;
+}
+
+div.card .id {
+    background-color: red;
+    padding: 5px;
+    border-radius: 10px;
+}
