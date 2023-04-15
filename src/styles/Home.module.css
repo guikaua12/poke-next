@@ -1,9 +1,24 @@
+div.titleWrapper {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+}
+
 div.titleWrapper > h1 {
     display: inline-block;
     margin-right: 10px;
+    font-size: 3em;
 }
 
 span.poke {
     color: #DB4539;
 }
 
+div.cardsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+
+    /*background-color: gold;*/
+}
